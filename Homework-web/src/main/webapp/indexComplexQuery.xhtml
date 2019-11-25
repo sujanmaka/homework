@@ -15,7 +15,7 @@
 
         <rich:panel id="panel">
             <h:form>
-                <p>The complex query1 is "SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query"</p>
+                <p>The complex query1 is "SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query and st.faculty IS NOT NULL"</p>
                 <p>School Name <h:inputText id="name" label="name"  value="#{schools.query1}" validatorMessage="Enter name">
 
                     </h:inputText>
@@ -34,7 +34,7 @@
         
         <rich:panel id="panel1">
             <h:form>
-                <p>The complex query2 is "Select sc.headMaster.name from School sc INNER JOIN sc.headMaster where sc.address=:address and sc.headMaster.education=:education and sc.schoolName LIKE :query"</p>
+                <p>The complex query2 is "Select sc.headMaster.name from School sc INNER JOIN sc.students st where sc.address=:address and sc.headMaster.education=:education and st.email LIKE :query"</p>
                 <p>School Address <h:inputText id="name1"  value="#{schools.address}" validatorMessage="Enter name">
 
                     </h:inputText>
