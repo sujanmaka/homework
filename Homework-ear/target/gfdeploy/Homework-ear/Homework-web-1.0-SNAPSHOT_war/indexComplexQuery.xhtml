@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:rich="http://richfaces.org/rich"
+      >
+    <h:head>
+        <title>Simple CRUD</title>
+    </h:head>
+
+    <h:body>
+
+        <rich:panel id="panel">
+            <h:form>
+                <p>The complex query1 is "SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query"</p>
+                <p>School Name <h:inputText id="name" label="name"  value="#{schools.query1}" validatorMessage="Enter name">
+
+                    </h:inputText>
+                    <rich:message for="name" />
+                </p>
+
+                <p>
+                    <h:commandButton value="Result 1" action="#{schools.complexQuery1()}">
+                        <!--<f:setPropertyActionListener target="{students.faculties}" value="{students.user.faculties}"/>-->
+                    </h:commandButton>
+                </p>
+
+                <h:outputText value="#{schools.result1}" />
+            </h:form>
+        </rich:panel>
+        
+        <rich:panel id="panel1">
+            <h:form>
+                <p>The complex query2 is "Select sc.headMaster.name from School sc INNER JOIN sc.headMaster where sc.address=:address and sc.headMaster.education=:education and sc.schoolName LIKE :query"</p>
+                <p>School Address <h:inputText id="name1"  value="#{schools.address}" validatorMessage="Enter name">
+
+                    </h:inputText>
+                    <rich:message for="name1" />
+                </p>
+                <p>Headmaster Education <h:inputText id="name2" value="#{schools.education}" validatorMessage="Enter name">
+
+                    </h:inputText>
+                    <rich:message for="name2" />
+                </p>
+                <p>School name starting with <h:inputText id="name3"  value="#{schools.query2}" validatorMessage="Enter name">
+
+                    </h:inputText>
+                    <rich:message for="name3" />
+                </p>
+
+                <p>
+                    <h:commandButton value="Result 2" action="#{schools.complexQuery2}">
+                        <!--<f:setPropertyActionListener target="{students.faculties}" value="{students.user.faculties}"/>-->
+                    </h:commandButton>
+                </p>
+
+                <h:outputText value="#{schools.result2}" />
+            </h:form>
+        </rich:panel>
+
+        <h:panelGroup>
+            <h:form>
+                <h:commandButton value="Back to home page" action="#{navigation.navigateToHome()}" />
+            </h:form>
+        </h:panelGroup>
+
+        
+
+
+    </h:body>
+</html>

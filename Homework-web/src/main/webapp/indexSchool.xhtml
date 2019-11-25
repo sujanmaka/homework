@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:rich="http://richfaces.org/rich"
+      >
+    <h:head>
+        <title>Simple CRUD</title>
+    </h:head>
+
+    <h:body>
+
+        <rich:panel id="panel">
+            <h3>Add Schools</h3>
+            <h:form>
+                <p>School Name <h:inputText id="name" label="name"  value="#{schools.schoolDto.schoolName}" validatorMessage="Name is required">
+
+                    </h:inputText>
+                    <rich:message for="name" />
+                </p>
+
+                <p>Address: <h:inputText id="address" label="address"  value="#{schools.schoolDto.address}" validatorMessage="Address is required">
+
+                    </h:inputText>
+                    <rich:message for="address" />
+                </p>
+
+                <h3>Head master info</h3>
+                <p>Headmaster Name <h:inputText id="headmasterName" label="headmasterName"  value="#{schools.schoolDto.headMaster.name}" validatorMessage="Headmaster Name is required">
+
+                    </h:inputText>
+                    <rich:message for="headmasterName" />
+                </p>
+                <p>Education <h:inputText id="education" label="education"  value="#{schools.schoolDto.headMaster.education}" validatorMessage="Education is required">
+
+                    </h:inputText>
+                    <rich:message for="education" />
+                </p>
+                <p>Age <h:inputText id="age" label="age"  value="#{schools.schoolDto.headMaster.age}" validatorMessage="Age is required">
+
+                    </h:inputText>
+                    <rich:message for="age" />
+                </p>
+
+                <p>
+                    <h:commandButton value="add" action="#{schools.addSchool()}">
+                        <!--<f:setPropertyActionListener target="{students.faculties}" value="{students.user.faculties}"/>-->
+                    </h:commandButton>
+                </p>
+
+                <rich:tooltip value="Please Enter Name " target="name"/>
+                <rich:tooltip value="Please Enter Address " target="address"/>
+            </h:form>
+        </rich:panel>
+
+
+        <rich:panel>
+            <h3>List of Schools</h3>
+            <h:form rendered="#{not empty schools.schoolList}">
+                <rich:extendedDataTable value="#{schools.schoolList}" id="table" var="item" filterVar="filterVal">
+
+                    <f:facet name="noData">
+                        Nothing found
+                    </f:facet>
+
+                    <rich:column><f:facet name="header">Id</f:facet>#{item.id}</rich:column>
+                    <rich:column><f:facet name="header">School Name</f:facet>#{item.schoolName}</rich:column>
+                    <rich:column><f:facet name="header">Address</f:facet>#{item.address}</rich:column>
+
+                    <rich:column>
+                        <h:commandButton value="edit" action="#{schools.navigateToEditPage()}">
+                            <f:setPropertyActionListener target="#{schools.schoolDto}" value="#{item}"/>
+                        </h:commandButton>
+                    </rich:column>
+
+
+                    <rich:column>
+
+                        <h:commandButton value="Delete" action="#{schools.deleteSchool()}">  
+                            <f:setPropertyActionListener target="#{schools.schoolDto}" value="#{item}"/> 
+                        </h:commandButton>  
+                    </rich:column>
+
+                    <rich:column>
+
+                        <h:commandButton value="View Head Master Info" action="#{schools.viewHeadMasterInfo}">  
+                            <f:setPropertyActionListener target="#{schools.schoolDto.id}" value="#{item.id}"/> 
+                        </h:commandButton>  
+                    </rich:column>
+
+                </rich:extendedDataTable>
+            </h:form>
+        </rich:panel>
+
+        <h:panelGroup>
+            <h:form>
+                <h:commandButton value="Back to home page" action="#{navigation.navigateToHome()}" />
+            </h:form>
+        </h:panelGroup>
+
+
+
+        <h:panelGroup rendered="#{empty schools.schoolList}">
+            <p>No Schools! Please add schools.</p>
+        </h:panelGroup>
+
+
+
+    </h:body>
+</html>
