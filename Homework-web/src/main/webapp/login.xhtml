@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+
+      xmlns:a4j="http://richfaces.org/a4j">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+
+    <h:body>
+
+        <h:form>
+            <h3>Login</h3>
+            <h:outputText value="Username " />
+            <h:inputText id="username" value="#{login.user}"></h:inputText>
+            <h:message for="username"></h:message>
+            <br></br><br></br>
+
+            <h:outputText value="Password " />
+            <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+            <h:message for="password"></h:message>
+            <br></br><br></br>
+
+            <h:commandButton action="#{login.validateUsernamePassword}"
+                             value="Login"></h:commandButton>
+        </h:form>
+
+    </h:body>
+</html>
