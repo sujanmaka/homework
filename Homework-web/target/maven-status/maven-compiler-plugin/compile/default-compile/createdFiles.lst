@@ -1,6 +1,9 @@
-Controller/NavigationController.class
+com/web/AuthorizationFilter.class
 com/web/NewServlet.class
-Controller/SchoolsController.class
-Controller/StudentsController.class
-Controller/DataFilteringBean.class
-Controller/TeachersController.class
+controller/SchoolsController.class
+controller/DataFilteringBean.class
+controller/StudentsController.class
+controller/NavigationController.class
+controller/Login.class
+utils/SessionUtils.class
+controller/TeachersController.class

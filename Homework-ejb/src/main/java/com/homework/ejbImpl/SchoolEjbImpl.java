@@ -118,9 +118,9 @@ public class SchoolEjbImpl implements SchoolEjb {
     @Override
     public String executeComplexQuery1(String query) {
         try {
-            Query q = em.createQuery("SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query");
+            Query q = em.createQuery("SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query and st.faculty IS NOT NULL");
             q.setParameter("query", query);
-            String result = (String) q.getSingleResult();
+            String result = (String) q.getResultList().get(0);
             return result;
         } catch (Exception e) {
             return "";
@@ -130,11 +130,11 @@ public class SchoolEjbImpl implements SchoolEjb {
     @Override
     public String executeComplexQuery2(String address, String education, String query) {
         try {
-            Query q = em.createQuery("Select sc.headMaster.name from School sc INNER JOIN sc.headMaster where sc.address=:address and sc.headMaster.education=:education and sc.schoolName LIKE :query");
+            Query q = em.createQuery("Select sc.headMaster.name from School sc INNER JOIN sc.students st where sc.address=:address and sc.headMaster.education=:education and st.email LIKE :query");
             q.setParameter("address", address);
             q.setParameter("education", education);
             q.setParameter("query", query + "%");
-            String result = (String) q.getSingleResult();
+            String result = (String) q.getResultList().get(0);
             return result;
         } catch (Exception e) {
             return "";

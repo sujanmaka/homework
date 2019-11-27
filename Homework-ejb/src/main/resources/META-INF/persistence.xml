@@ -3,7 +3,13 @@
   <persistence-unit name="myPersistenceUnit" transaction-type="JTA">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>jdbc/homework</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <class>com.homework.entity.Admin</class>
+    <class>com.homework.entity.DeletedStudents</class>
+    <class>com.homework.entity.Faculties</class>
+    <class>com.homework.entity.HeadMaster</class>
+    <class>com.homework.entity.School</class>
+    <class>com.homework.entity.Student</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>

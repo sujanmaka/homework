@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
 import com.homework.converter.EntityToDtoConverter;
 import com.homework.dto.HeadMasterDto;
