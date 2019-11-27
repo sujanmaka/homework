@@ -13,7 +13,7 @@
 
     <style> 
         input[type=text] {
-            width: 100%;
+            width: 30%;
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -28,11 +28,10 @@
         <rich:panel id="panel">
             <h:form>
                 <p>The complex query1 is "SELECT st.userName from student st INNER JOIN st.school sc where sc.schoolName=:query or sc.headMaster.name=:query and st.faculty IS NOT NULL"</p>
-                <p>School Name <h:inputText id="name" label="name"  value="#{schools.query1}" validatorMessage="Enter name">
+                <p>School Name </p><h:inputText id="name" label="name"  value="#{schools.query1}" validatorMessage="Enter name">
 
-                    </h:inputText>
-                    <rich:message for="name" />
-                </p>
+                </h:inputText>
+                <rich:message for="name" />
 
                 <p>
                     <h:commandButton value="Result 1" action="#{schools.complexQuery1()}">
@@ -47,21 +46,18 @@
         <rich:panel id="panel1">
             <h:form>
                 <p>The complex query2 is "Select sc.headMaster.name from School sc INNER JOIN sc.students st where sc.address=:address and sc.headMaster.education=:education and st.email LIKE :query"</p>
-                <p>School Address <h:inputText id="name1"  value="#{schools.address}" validatorMessage="Enter name">
+                <p>School Address </p><h:inputText id="name1"  value="#{schools.address}" validatorMessage="Enter name">
 
-                    </h:inputText>
-                    <rich:message for="name1" />
-                </p>
-                <p>Headmaster Education <h:inputText id="name2" value="#{schools.education}" validatorMessage="Enter name">
+                </h:inputText>
+                <rich:message for="name1" />
+                <p>Headmaster Education </p><h:inputText id="name2" value="#{schools.education}" validatorMessage="Enter name">
 
-                    </h:inputText>
-                    <rich:message for="name2" />
-                </p>
-                <p>School name starting with <h:inputText id="name3"  value="#{schools.query2}" validatorMessage="Enter name">
+                </h:inputText>
+                <rich:message for="name2" />
+                <p>School name starting with </p><h:inputText id="name3"  value="#{schools.query2}" validatorMessage="Enter name">
 
-                    </h:inputText>
-                    <rich:message for="name3" />
-                </p>
+                </h:inputText>
+                <rich:message for="name3" />
 
                 <p>
                     <h:commandButton value="Result 2" action="#{schools.complexQuery2}">

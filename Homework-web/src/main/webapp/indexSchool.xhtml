@@ -13,7 +13,7 @@
 
     <style> 
         input[type=text] {
-            width: 50%;
+            width: 30%;
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -28,37 +28,32 @@
         <rich:panel id="panel">
             <h3>Add Schools</h3>
             <h:form>
-                <p>School Name <h:inputText id="name" label="name"  value="#{schools.schoolDto.schoolName}" validatorMessage="Name is required">
+                <p>School Name</p> <h:inputText id="name" label="name"  value="#{schools.schoolDto.schoolName}" validatorMessage="Name is required">
 
-                    </h:inputText>
-                    <rich:message for="name" />
-                </p>
+                </h:inputText>
+                <rich:message for="name" />
 
-                <p>Address: <h:inputText id="address" label="address"  value="#{schools.schoolDto.address}" validatorMessage="Address is required">
+                <p>Address: </p><h:inputText id="address" label="address"  value="#{schools.schoolDto.address}" validatorMessage="Address is required">
 
-                    </h:inputText>
-                    <rich:message for="address" />
-                </p>
+                </h:inputText>
+                <rich:message for="address" />
 
                 <h3>Head master info</h3>
-                <p>Headmaster Name <h:inputText id="headmasterName" label="headmasterName"  value="#{schools.schoolDto.headMaster.name}" validatorMessage="Headmaster Name is required">
+                <p>Headmaster Name </p> <h:inputText id="headmasterName" label="headmasterName"  value="#{schools.schoolDto.headMaster.name}" validatorMessage="Headmaster Name is required">
 
-                    </h:inputText>
-                    <rich:message for="headmasterName" />
-                </p>
-                <p>Education <h:inputText id="education" label="education"  value="#{schools.schoolDto.headMaster.education}" validatorMessage="Education is required">
+                </h:inputText>
+                <rich:message for="headmasterName" />
+                <p>Education </p><h:inputText id="education" label="education"  value="#{schools.schoolDto.headMaster.education}" validatorMessage="Education is required">
 
-                    </h:inputText>
-                    <rich:message for="education" />
-                </p>
-                <p>Age <h:inputText id="age" label="age"  value="#{schools.schoolDto.headMaster.age}" validatorMessage="Age is required">
+                </h:inputText>
+                <rich:message for="education" />
+                <p>Age </p><h:inputText id="age" label="age"  value="#{schools.schoolDto.headMaster.age}" validatorMessage="Age is required">
 
-                    </h:inputText>
-                    <rich:message for="age" />
-                </p>
+                </h:inputText>
+                <rich:message for="age" />
 
                 <p>
-                    <h:commandButton value="add" action="#{schools.addSchool()}">
+                    <h:commandButton style="height: 40px; width: 40px" value="add" action="#{schools.addSchool()}">
                         <!--<f:setPropertyActionListener target="{students.faculties}" value="{students.user.faculties}"/>-->
                     </h:commandButton>
                 </p>
@@ -98,7 +93,7 @@
 
                     <rich:column>
 
-                        <h:commandButton style="width:50%; height: 40px; font-size: 20px" value="View Head Master Info" action="#{schools.viewHeadMasterInfo}">  
+                        <h:commandButton value="View Head Master Info" action="#{schools.viewHeadMasterInfo}">  
                             <f:setPropertyActionListener target="#{schools.schoolDto.id}" value="#{item.id}"/> 
                         </h:commandButton>  
                     </rich:column>

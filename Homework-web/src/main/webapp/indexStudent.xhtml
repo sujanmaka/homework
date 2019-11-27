@@ -15,7 +15,7 @@
 
     <style> 
         input[type=text] {
-            width: 100%;
+            width: 30%;
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -116,80 +116,75 @@
         <rich:panel id="panel">
             <h3>Add student</h3>
             <h:form>
-                <p>Name: <h:inputText id="name" value="#{students.user.userName}" validatorMessage="Input name is required">
-                        <f:validateRequired />
-                        <rich:validator/>
-                    </h:inputText>
-                    <rich:message for="name" />
-                </p>
+                <p>Name: </p><h:inputText id="name" value="#{students.user.userName}" validatorMessage="Input name is required">
+                    <f:validateRequired />
+                    <rich:validator/>
+                </h:inputText>
+                <rich:message for="name" />
 
 
-                <p>Mobile: <h:inputText id="mobile" label="Mobile No."  value="#{students.user.mobile}" validatorMessage="Mobile number is invalid">
-                        <f:convertNumber integerOnly="true" type="number"/>
-                        <f:validateLength minimum="10" maximum="10" />
+                <p>Mobile: </p><h:inputText id="mobile" label="Mobile No."  value="#{students.user.mobile}" validatorMessage="Mobile number is invalid">
+                    <f:convertNumber integerOnly="true" type="number"/>
+                    <f:validateLength minimum="10" maximum="10" />
 
-                    </h:inputText>
-                    <rich:message for="mobile" />
-                </p>
+                </h:inputText>
+                <rich:message for="mobile" />
 
-                <p>Email: <h:inputText id="email" value="#{students.user.email}" required="true" label="Email" validatorMessage="Email is not valid">
-                        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-                    </h:inputText>
-                    <rich:message for="email" />
-                </p>
+
+                <p>Email: </p><h:inputText id="email" value="#{students.user.email}" required="true" label="Email" validatorMessage="Email is not valid">
+                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                </h:inputText>
+                <rich:message for="email" />
 
 
 
 
 
                 <h:panelGroup id="dropdown">
-                    <p>Faculty: 
+                    <p>Faculty: </p>
 
-                        <rich:inplaceSelect id="faculty" value = "#{students.user.faculty}" defaultLabel = "Click to Select Faculty" validatorMessage="Please select anyone faculty">
-                            <f:validateRequired/>
-                            <f:selectItems value = "#{students.SubJectList()}"></f:selectItems>   
-                            <f:ajax render="dropdown" />
-                        </rich:inplaceSelect>
-                        <rich:message for="faculty" />
+                    <rich:inplaceSelect id="faculty" value = "#{students.user.faculty}" defaultLabel = "Click to Select Faculty" validatorMessage="Please select anyone faculty">
+                        <f:validateRequired/>
+                        <f:selectItems value = "#{students.SubJectList()}"></f:selectItems>   
+                        <f:ajax render="dropdown" />
+                    </rich:inplaceSelect>
+                    <rich:message for="faculty" />
 
-                        <!--faculties haru rakhne-->
-                        <h:panelGroup rendered="#{students.user.faculty == 'physics'}">
-                            <p>You've selected physics.</p>
-                            <h:selectManyCheckbox value="#{students.faculties}" >
+                    <!--faculties haru rakhne-->
+                    <h:panelGroup rendered="#{students.user.faculty == 'physics'}">
+                        <p>You've selected physics.</p>
+                        <h:selectManyCheckbox value="#{students.faculties}" >
 
-                                <f:selectItem itemValue="physics 1" />
-                                <f:selectItem itemValue="physics 2" />
-                                <f:selectItem itemValue="physics 3" />
-                            </h:selectManyCheckbox>
-                        </h:panelGroup>
+                            <f:selectItem itemValue="physics 1" />
+                            <f:selectItem itemValue="physics 2" />
+                            <f:selectItem itemValue="physics 3" />
+                        </h:selectManyCheckbox>
+                    </h:panelGroup>
 
-                        <h:panelGroup rendered="#{students.user.faculty == 'chemistry'}">
-                            <p>You've selected chemisty.</p>
-                            <h:selectManyCheckbox value="#{students.faculties}">
-                                <f:selectItem itemValue="chemistry 1" />
-                                <f:selectItem itemValue="chemistry 2" />
-                                <f:selectItem itemValue="chemistry 3" />
-                            </h:selectManyCheckbox>
-                        </h:panelGroup>
+                    <h:panelGroup rendered="#{students.user.faculty == 'chemistry'}">
+                        <p>You've selected chemisty.</p>
+                        <h:selectManyCheckbox value="#{students.faculties}">
+                            <f:selectItem itemValue="chemistry 1" />
+                            <f:selectItem itemValue="chemistry 2" />
+                            <f:selectItem itemValue="chemistry 3" />
+                        </h:selectManyCheckbox>
+                    </h:panelGroup>
 
-                        <h:panelGroup rendered="#{students.user.faculty == 'math'}">
-                            <p>You've selected math.</p>
-                            <h:selectManyCheckbox value="#{students.faculties}">
-                                <f:selectItem itemValue="math 1" />
-                                <f:selectItem itemValue="math 2" />
-                                <f:selectItem itemValue="math 3" />
-                            </h:selectManyCheckbox>
-                        </h:panelGroup>
+                    <h:panelGroup rendered="#{students.user.faculty == 'math'}">
+                        <p>You've selected math.</p>
+                        <h:selectManyCheckbox value="#{students.faculties}">
+                            <f:selectItem itemValue="math 1" />
+                            <f:selectItem itemValue="math 2" />
+                            <f:selectItem itemValue="math 3" />
+                        </h:selectManyCheckbox>
+                    </h:panelGroup>
 
-                    </p> 
                 </h:panelGroup>
 
-                <p>Please select your school:
+                <p>Please select your school: </p>
                     <h:selectOneMenu value="#{students.schoolId}">
                         <f:selectItems value="#{schools.schoolList}" var="school" itemValue="#{school.id}" itemLabel="#{school.schoolName}" />
                     </h:selectOneMenu>
-
-                </p>
 
                 <p>
                     <h:commandButton value="add" action="#{students.addUser()}">
