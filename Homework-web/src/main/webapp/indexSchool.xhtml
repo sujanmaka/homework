@@ -11,6 +11,18 @@
         <title>Simple CRUD</title>
     </h:head>
 
+    <style> 
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+    </style>
+
     <h:body>
 
         <rich:panel id="panel">
@@ -86,7 +98,7 @@
 
                     <rich:column>
 
-                        <h:commandButton value="View Head Master Info" action="#{schools.viewHeadMasterInfo}">  
+                        <h:commandButton style="width:50%; height: 40px; font-size: 20px" value="View Head Master Info" action="#{schools.viewHeadMasterInfo}">  
                             <f:setPropertyActionListener target="#{schools.schoolDto.id}" value="#{item.id}"/> 
                         </h:commandButton>  
                     </rich:column>
@@ -97,7 +109,7 @@
 
         <h:panelGroup>
             <h:form>
-                <h:commandButton value="Back to home page" action="#{navigation.navigateToHome()}" />
+                <h:commandLink style="width:250px; height: 40px; font-size: 20px" value="Back to home page" action="#{navigation.navigateToHome()}" />
             </h:form>
         </h:panelGroup>
 

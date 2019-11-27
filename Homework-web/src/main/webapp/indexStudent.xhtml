@@ -13,6 +13,18 @@
         <title>Simple CRUD</title>
     </h:head>
 
+    <style> 
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+    </style>
+
     <h:body>
         <rich:panel>
             <h3>List of Students</h3>
@@ -203,7 +215,7 @@
                         <p>
 
 
-                            <h:commandButton value="Ok Botton" action="#{students.removeExceptions()}" onclick="#{rich:component('popup')}.hide()"/> 
+                            <h:commandButton style="width:50%; height: 40px; font-size: 20px" value="Ok Botton" action="#{students.removeExceptions()}" onclick="#{rich:component('popup')}.hide()"/> 
 
                         </p>
                     </rich:popupPanel>
@@ -220,7 +232,7 @@
 
         <h:panelGroup>
             <h:form>
-                <h:commandButton value="Back to home page" action="#{navigation.navigateToHome()}" />
+                <h:commandLink style="width:250px; height: 40px; font-size: 20px" value="Back to home page" action="#{navigation.navigateToHome()}" />
             </h:form>
         </h:panelGroup>
 

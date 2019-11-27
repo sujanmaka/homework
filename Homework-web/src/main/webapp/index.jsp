@@ -11,6 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style> 
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+    </style>
     <body>
         Enter Head master info to be saved.
         <form action="NewServlet">

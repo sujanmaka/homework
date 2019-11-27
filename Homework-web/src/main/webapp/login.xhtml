@@ -12,7 +12,26 @@
     <h:head>
         <title>Login</title>
     </h:head>
+    <style> 
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
 
+        input[type=password] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+    </style>
     <h:body>
 
         <h:form>
@@ -27,7 +46,7 @@
             <h:message for="password"></h:message>
             <br></br><br></br>
 
-            <h:commandButton action="#{login.validateUsernamePassword}"
+            <h:commandButton style="width:80px; height: 40px; margin-left: 80px;" action="#{login.validateUsernamePassword}"
                              value="Login"></h:commandButton>
         </h:form>
 

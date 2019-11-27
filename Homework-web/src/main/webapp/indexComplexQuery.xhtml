@@ -11,6 +11,18 @@
         <title>Simple CRUD</title>
     </h:head>
 
+    <style> 
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+    </style>
+
     <h:body>
 
         <rich:panel id="panel">
@@ -31,7 +43,7 @@
                 <h:outputText value="#{schools.result1}" />
             </h:form>
         </rich:panel>
-        
+
         <rich:panel id="panel1">
             <h:form>
                 <p>The complex query2 is "Select sc.headMaster.name from School sc INNER JOIN sc.students st where sc.address=:address and sc.headMaster.education=:education and st.email LIKE :query"</p>
@@ -63,11 +75,11 @@
 
         <h:panelGroup>
             <h:form>
-                <h:commandButton value="Back to home page" action="#{navigation.navigateToHome()}" />
+                <h:commandLink style="width:250px; height: 40px; font-size: 20px" value="Back to home page" action="#{navigation.navigateToHome()}" />
             </h:form>
         </h:panelGroup>
 
-        
+
 
 
     </h:body>
